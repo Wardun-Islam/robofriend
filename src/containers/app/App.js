@@ -4,7 +4,8 @@ import 'tachyons';
 import Header from '../../components/header/Header';
 import Input from '../../components/input/Input';
 import CardList from '../../components/cardlist/CardList';
-import Scroll from '../../components/scroll/Scroll'
+import Scroll from '../../components/scroll/Scroll';
+import ErrorBoundary from '../../components/errorboundary/ErrorBoundary';
 //import {Robots} from '../../contents/Contents';
 
 class App extends Component{
@@ -55,13 +56,15 @@ class App extends Component{
       return (!robots.length) ?
         <h1 style={{textAlign:'center', fontWeight:'600%'}}>Loading...</h1> :
             (<div className="body">
-              <Header/>
-              <Input  onTextChange={onTextChange} onButtonClick={onButtonClick}/>
-              <Scroll>
-                <div className="App">
-                  <CardList Robots={filterRobots}/>
-                </div>
-              </Scroll>
+                <Header/>
+                <Input  onTextChange={onTextChange} onButtonClick={onButtonClick}/>
+                <Scroll>
+                    <div className="App">
+                      <ErrorBoundary>
+                         <CardList Robots={filterRobots}/>
+                       </ErrorBoundary>
+                    </div>
+                </Scroll>
             </div>);
     }
 }
