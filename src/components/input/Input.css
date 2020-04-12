@@ -1,0 +1,22 @@
+.al{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+input{
+	background-color: #10375c;
+	color: #f2ed6f;
+}
+input:hover{
+	background-color: #442727;
+}
+input:focus{
+	outline: none;
+	background-color: #442727;
+}
+.field{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
